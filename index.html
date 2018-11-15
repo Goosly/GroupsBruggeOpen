@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+<link rel="stylesheet" href="cubing-icons.css">
+<title>Brugge Open 2018</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.events = ["Name","555","skewb","333oh","333bf","minx","666","777","444","pyram","333","222"];
+
+    $scope.persons =
+        [["Adam Greenwood","2;S1","","2;J1","1;J2","1;J2","2;S1","1;R2","3;J1","1;J2","3;S1",""],
+        ["Adrien Schumacker","2;J1","2;J1","1;R2","","2;R1","1;J2","1;S2","3;R1","2;J1","2;J3","2"],
+        ["Alex Bataille","1;J2","2;J1","1;J2","","2;J1","","","2;J3","2;J1","1;J2","1;J2"],
+        ["Amirkhan Sapakov","","","","","","","","2;J3","","3;J1",""],
+        ["Andy Nicholls","1;J2","","2;J1","1;J2","1;J2","1;J2","1;J2","1;J2","","3;S1",""],
+        ["Anthony Pena de la Rosa","","","","1;J2","2;J1","","","1;J2","","1;J2",""],
+        ["Antonie Paterakis","2;J1","1;S2","1;J2","1;J2","1;R2","1;R2","1;J2","2;J3","2;S1","2;R3","1;R2"],
+        ["Arthur Wallem","2;J1","","1;R2","","","2;J1","2;J1","2;R3","","2;S3","1;S2"],
+        ["Aude-Marie Béal-Toulotte","","","","","","","","","","","1;J2"],
+        ["Beau Ramsey","","","","","","","","","","1",""],
+        ["Brent Silkyn","","1;J2","","2;J1","","","","","1","2;J3","1;J2"],
+        ["Bruno Vervoort","2;J1","","1;J2","2;J1","","2;R1","1;S2","3;S1","","2","3;S1"],
+        ["Callum Goodyear","1;S2","2;S1","2;J1","1;S2","2;S1","1;J2","2;J1","1;S2","2;R1","1;R2","2;J3"],
+        ["Cyril Bataille","","","","","","","","","","3","2;J3"],
+        ["Daniël Kassab","1;J2","2;S1","1;J2","","1;S2","1;J2","2;J1","2;R3","2;J1","1;S2","2;S3"],
+        ["Elias Malomgré","2;R1","1;J2","2;S1","2;S1","1;S2","2;J1","2;S1","2;S3","1;S2","2;S3","1;J2"],
+        ["Emilie Parent","","","","","","","","1;J2","2;J1","2;J3","3"],
+        ["Emilio Tanzarella","2;J1","","","","2;J1","2;J1","1;J2","2;J3","1;J2","1","1"],
+        ["Enzo Boncinelli","","","","","","","","3;J1","2;J1","3;J1","3;J1"],
+        ["Eoin Dowling","2;J1","2;J1","1;J2","2;J1","","2;J1","2;J1","2;J3","","2","1;J2"],
+        ["Erelkhegbaatar Lkhagva","2;R1","","2;J1","2;R1","","","","3;J1","","1;J2","2;R3"],
+        ["Fanny Pousset","","1;J2","2;J1","","2;J1","","","3;J1","1;J2","3;J1","2;J3"],
+        ["Hannah Claus","","","","","","","","","1;R2","1;R2","1;J2"],
+        ["Henry Clasen","","","","","","","","","","3","3;J1"],
+        ["Ilya Vandorpe","","","","","","","","","1","2","3;J1"],
+        ["Jan van Dorst","2;J1","2;R1","1;J2","1;R2","2;S1","2;J1","1;J2","3;S1","1;R2","1","1;S2"],
+        ["Jenne Vanassche","","","2;J1","","","","","","","2;J3","2;J3"],
+        ["Jens Renders","","","","","","","","","","3","2;S3"],
+        ["Jessica Moens","1","1","1","1","1","2","2","3","","3",""],
+        ["Jonas Rongé","2;J1","1;S2","1;S2","1;J2","1;J2","2;J1","1;J2","3;R1","1;S2","3;J1","3;R1"],
+        ["Jonathan Mauroy","2;J1","1;J2","1;S2","2;J1","2;J1","2;J1","2;S1","1;J2","2;R1","3;J1","2"],
+        ["Joris Coppejans","","2;J1","2;J1","1;J2","","","","","1;J2","2","1;J2"],
+        ["Karina Grandjean Beck","2;J1","","2;J1","","1;J2","1;J2","1;J2","3;J1","2;J1","3;J1",""],
+        ["Karla Struer Lund","1;J2","","","","1;J2","1;J2","2;J1","3;J1","","1;J2","3;J1"],
+        ["Kasper Minnaert","","","","","","","","","","3;J1","2;J3"],
+        ["Kylian Minnaar","","","","","","","","","","1","2;J3"],
+        ["Lars Van den broeck","2;J1","1;R2","2;J1","","","2;J1","","1;J2","2","3;R1","1;R2"],
+        ["Louis Bokiau","","","","","","","","","2;J1","3;J1","3"],
+        ["Louis Fertier","1;J2","","1;J2","","1;J2","","","1;J2","1;J2","1;J2","3;J1"],
+        ["Lucas Cai","2","2;J1","","","","","","2;J3","2;J1","1;J2","2;J3"],
+        ["Manu Vereecken","","","","2","","1","1","","","3",""],
+        ["Maria Oey","","","","","","","","","","1","1;J2"],
+        ["Mattheo de Wit","1;J2","2;J1","2;R1","2;J1","2;J1","2;S1","2;R1","","","",""],
+        ["Maxim Onushkin","1;R2","1;R2","2;R1","","2;R1","1;S2","","1;R2","2;S1","3;R1","3;J1"],
+        ["Maxime Madrzyk","1;J2","1;J2","1;J2","1;J2","2;J1","","","","1;J2","2;J3","3;J1"],
+        ["Mikela Elleby Jørgensen","","1;J2","","1;J2","2;J1","","","3;J1","1;J2","2;J3","3"],
+        ["Nicolas Ceysens","","","","","","","","3;J1","2","1;J2","3;J1"],
+        ["Nicolas Vansteen","","","","","","","","2;J3","1;J2","1;J2","1"],
+        ["Noah Delcroix","","1;J2","","","","","","","2;J1","2;J3","1;J2"],
+        ["Noémie Heroes","","","","","","","","","","1;J2",""],
+        ["Philipp Weyer","1;J2","","1;J2","","","","","3;J1","","2;J3",""],
+        ["Pietro Angelillo","","","","","","","","2;J3","1;J2","3","2;J3"],
+        ["Quentin Parent","","","","","","","","","1;J2","3;J1","3;J1"],
+        ["Radu Făciu","","","","","","","","1;R2","1;J2","2;R3","3;R1"],
+        ["Robert Antal","","","1;J2","","2;J1","","","1;J2","2","1;J2","3;J1"],
+        ["Romain D'hondt","1;J2","2;J1","","","","","","3;J1","2","2;J3","2;J3"],
+        ["Ronan Hanley","","1;J2","1;J2","1;J2","","","","1;J2","","1;J2","3;J1"],
+        ["Sacha Lewin","","","","","","","","3;J1","","3;J1","2;J3"],
+        ["Seb van den Beemt","2;J1","1;J2","2;J1","","","1;J2","2;J1","1;J2","2;J1","2","2;J3"],
+        ["Sebastian Weyer","1;J2","","2;J1","2;J1","","1;J2","2;J1","1;S2","","1;S2",""],
+        ["Seppe Van Ammel","","","","","","","","","2;J1","2;J3","2;J3"],
+        ["Steven Van Overberghe","","","","","","","","","","2;J3","1;J2"],
+        ["Tijmen van der Ree","2;S1","2;R1","1;J2","2;J1","1;R2","","2;J1","2;S3","1","1;J2","1"],
+        ["Ting Sheng Bao Yang","1;S2","2;J1","2;S1","2;J1","1;J2","1;S2","1;J2","1;J2","1","2;J3","3;S1"],
+        ["Ton Dennenbroek","","","","","","","","2;J3","","3;J1","2"],
+        ["Ulysse Van Damme","","","","","","","","2;J3","2","1","3;J1"],
+        ["Victor Wijsman","1;J2","2;J1","2;J1","","1;J2","","","1;J2","2;J1","3;J1","1;J2"],
+        ["Zehui Tian ","","2;J1","","","","","","","1;J2","1","1;J2"],
+        ["Zolboo Erelkhegbaatar","1;R2","","","","","","","2;J3","","2","2;R3"]];
+        
+        
+    $scope.$watch('name', function (id, oldval, newval) {
+      console.log(newval.name);
+      $scope.matches = $scope.persons.filter(p => p[0].toUpperCase().indexOf(newval.name.toUpperCase()) > -1);
+    });
+});
+</script>
+
+<style>
+p, input, table {
+  font-size: 2em;
+}
+
+</style>
+
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+  <input type="text" ng-model="name" placeholder="Enter your name">
+  
+  <div ng-if="matches.length === 1">
+  
+  <p>{{matches[0][0]}}</p>
+  
+  <table style="width:80%">
+    <tr>
+      <td><span class="cubing-icon event-555"></span></td>
+      <td>{{matches[0][1]}}</td>
+      <td><span class="cubing-icon event-444"></span></td>
+      <td>{{matches[0][1]}}</td>
+    </tr>
+    <tr>
+      <td><span class="cubing-icon event-skewb"></span></td>
+      <td>{{matches[0][2]}}</td>
+      <td><span class="cubing-icon event-pyram"></span></td>
+      <td>{{matches[0][1]}}</td>
+    </tr>
+    <tr>
+      <td><span class="cubing-icon event-333oh"></span></td>
+      <td>{{matches[0][3]}}</td>
+      <td><span class="cubing-icon event-333"></span></td>
+      <td>{{matches[0][1]}}</td>
+    </tr>
+    <tr>
+      <td><span class="cubing-icon event-333bf"></span></td>
+      <td>{{matches[0][4]}}</td>
+      <td><span class="cubing-icon event-222"></span></td>
+      <td>{{matches[0][1]}}</td>
+    </tr>
+    <tr>
+      <td><span class="cubing-icon event-minx"></span></td>
+      <td>{{matches[0][5]}}</td>
+    </tr>
+    <tr>
+      <td><span class="cubing-icon event-666"></span></td>
+      <td>{{matches[0][6]}}</td>
+    </tr>
+    <tr>
+      <td><span class="cubing-icon event-777"></span></td>
+      <td>{{matches[0][7]}}</td>
+    </tr>
+  </table>
+  
+  </div>
+</div>
+
+</body>
+</html>

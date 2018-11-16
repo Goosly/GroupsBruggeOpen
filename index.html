@@ -85,6 +85,7 @@ app.controller('myCtrl', function($scope) {
         ["Zolboo Erelkhegbaatar","1;R2","","","","","","","2;J3","","2","2;R3"]];
         
         
+    $scope.name = '';
     $scope.$watch('name', function (id, oldval, newval) {
       console.log(newval.name);
       $scope.matches = $scope.persons.filter(p => p[0].toUpperCase().indexOf(newval.name.toUpperCase()) > -1);
@@ -103,7 +104,9 @@ p, input, table {
 
 <div ng-app="myApp" ng-controller="myCtrl">
   <input type="text" ng-model="name" placeholder="Enter your name">
-  
+
+  <p ng-if="name.length > 0 && matches.length !== 1">{{matches.length}} matching names...</p>
+    
   <div ng-if="matches.length === 1">
   
   <p>{{matches[0][0]}}</p>
